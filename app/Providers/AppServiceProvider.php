@@ -26,6 +26,6 @@ class AppServiceProvider extends ServiceProvider
     {
         // Remove data wrapping from all resources
         JsonResource::withoutWrapping();
-        Model::preventLazyLoading(!$this->app->isProduction());
+        Model::preventLazyLoading(! $this->app->isProduction());
     }
 }
