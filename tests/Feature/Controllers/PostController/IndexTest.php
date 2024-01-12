@@ -2,14 +2,10 @@
 
 use App\Http\Resources\PostResource;
 use App\Models\Post;
-use Inertia\Testing\AssertableInertia;
 
 it('should return the corret component', function () {
     $this->get(route('posts.index'))
-        ->assertInertia(
-            fn (AssertableInertia $inertia) => $inertia
-                ->component('Posts/Index')
-        );
+        ->assertComponent('Posts/Index');
 });
 
 it('passes posts to the view', function () {

@@ -1,6 +1,5 @@
 <template>
     <AppLayout>
-        Hello World!
         <Container>
             <ul class="divide-y">
                 <li v-for="post in posts.data" :key="post.id" class="px-2 py-4">

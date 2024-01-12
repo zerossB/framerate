@@ -35,3 +35,4 @@ Route::middleware([
 });
 
 Route::get('/posts', 'PostController@index')->name('posts.index');
+Route::get('/posts/{post}', 'PostController@show')->name('posts.show');
