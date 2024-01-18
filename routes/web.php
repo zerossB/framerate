@@ -32,6 +32,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
+    Route::post('/posts/{post}/comments', 'CommentController@store')->name('posts.comments.store');
 });
 
 Route::get('/posts', 'PostController@index')->name('posts.index');
