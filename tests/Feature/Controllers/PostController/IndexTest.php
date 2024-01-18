@@ -11,6 +11,8 @@ it('should return the corret component', function () {
 it('passes posts to the view', function () {
     $posts = Post::factory()->count(3)->create();
 
+    $posts->load('user');
+
     $this->get(route('posts.index'))
         ->assertHasPaginatedResource('posts', PostResource::collection($posts));
 });
