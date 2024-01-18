@@ -14,7 +14,7 @@
                 </p>
             </div>
         </footer>
-        <p class="text-gray-500 dark:text-gray-400">
+        <p class="text-gray-500 dark:text-gray-400 break-all">
             {{ comment.body }}
         </p>
     </article>
