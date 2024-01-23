@@ -12,10 +12,10 @@
                     </time>
                 </p>
             </div>
-            <div class="mt-1">
-                <form v-if="comment.can?.delete" @submit.prevent="deleteComment">
-                    <button type="submit">
-                        Delete Comment
+            <div class="mt-1 empty:hidden">
+                <form v-if="comment.can?.delete" @submit.prevent="emit('delete', comment.id)">
+                    <button type="submit" class="font-mono text-red-700 text-sm hover:font-bold">
+                        Delete
                     </button>
                 </form>
             </div>
@@ -28,12 +28,8 @@
 
 <script setup>
 import { relativeDate } from '@/Utilities/date';
-import { router, usePage } from '@inertiajs/vue3';
-import { computed } from 'vue';
 
 const props = defineProps(['comment']);
 
-const deleteComment = () => router.delete(route('comments.destroy', props.comment.id), {
-    preserveScroll: true,
-});
+const emit = defineEmits(['delete']);
 </script>
