@@ -12,7 +12,12 @@
                     </time>
                 </p>
             </div>
-            <div class="mt-1 empty:hidden">
+            <div class="mt-1 flex justify-end space-x-3 empty:hidden">
+                <form v-if="comment.can?.update" @submit.prevent="emit('edit', comment.id)">
+                    <button type="submit" class="font-mono text-sky-700 text-sm hover:font-bold">
+                        Edit
+                    </button>
+                </form>
                 <form v-if="comment.can?.delete" @submit.prevent="emit('delete', comment.id)">
                     <button type="submit" class="font-mono text-red-700 text-sm hover:font-bold">
                         Delete
@@ -31,5 +36,5 @@ import { relativeDate } from '@/Utilities/date';
 
 const props = defineProps(['comment']);
 
-const emit = defineEmits(['delete']);
+const emit = defineEmits(['delete', 'update']);
 </script>
